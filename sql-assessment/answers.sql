@@ -8,10 +8,10 @@ ORDER BY date;
 SELECT state, SUM(revenue)
 FROM website_revenue
 GROUP BY state
-ORDER BY SUM(revenue) 
+ORDER BY SUM(revenue) DESC
 LIMIT 3;
 
-The third best state generated 36,549 in revenue.
+The third best state, California (CA), generated 36,549 in revenue.
 
 --Question 3
 SELECT name, SUM(cost), SUM(impressions), SUM(clicks), SUM(revenue)
@@ -37,12 +37,13 @@ FROM marketing_performance
 	JOIN website_revenue
 ON marketing_performance.campaign_id = website_revenue.campaign_id
 GROUP BY campaign_id
-ORDER BY SUM(cost)
+ORDER BY SUM(cost);
 
-Campaign4 was the most efficient of the campaigns. 
-They ranked second for the least amount of money spent and also ranked second for the amount of revenue raised. 
-The other campaigns Subsequently, campaign4 ranked second for the amount of revenue raised by the campaign. 
-Other campaigns had a lower total cost but also a lower revenue. Vice-versa, companies had 
+Campaign4 was the most efficient among the campaigns. It was most efficient due to ranking second in 
+both spending the least amount of money on ads and generating the second-highest amount of revenue. 
+Indicating that campaign4 had a good return on investment compared to the other campaigns. 
+The other campaigns did not perform as efficiently. Some campaigns spent less money on ads but generated less revenue. 
+While other campaigns spent alot of money on advertisements resulting in higher revenue, but with a higher total cost to achieve that revenue. 
 
 --Question 6
 SELECT weekday(date), SUM(clicks)
